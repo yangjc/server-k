@@ -1,7 +1,7 @@
 {
   "name": "@yjc/server-k",
   "description": "Lightweight WEB Framework, folder based router, based on KOA.",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "bin": {
     "server-k": "./bin/startServer.js"
   },
@@ -28,6 +28,10 @@
   "directories": {
     "lib": "lib",
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangjc/server-k"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
