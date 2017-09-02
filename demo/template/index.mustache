@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html{{#lang}} lang="{{lang}}"{{/lang}}>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>{{title}}</title>
+{{#styles}}
+<link type="text/css" rel="stylesheet" href="{{#staticPath}}{{{.}}}{{/staticPath}}">
+{{/styles}}
+</head>
+<body>
+{{{mainContainer}}}
+{{{exportPageData}}}
+{{#scripts}}
+<script type="text/javascript" src="{{#staticPath}}{{{.}}}{{/staticPath}}"></script>
+{{/scripts}}
+</body>
+</html>

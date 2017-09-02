@@ -1,0 +1,35 @@
+{
+  "name": "@yjc/server-k",
+  "description": "Lightweight WEB Framework, folder based router, based on KOA.",
+  "version": "1.1.6",
+  "bin": {
+    "server-k": "./bin/startServer.js"
+  },
+  "dependencies": {
+    "@yjc/log": "",
+    "koa": "^2.3.0",
+    "koa-compose": "^4.0.0",
+    "koa-send": "^4.1.0",
+    "mustache": "^2.3.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "koa",
+    "mvc",
+    "folder based router"
+  ],
+  "engines": {
+    "node": ">= 8.1.2"
+  },
+  "author": "yangjiecong@live.com",
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
