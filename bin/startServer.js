@@ -167,7 +167,6 @@ async function create(cwd, argv) {
                 static: 'static',
                 log: 'log'
             },
-            staticPath: '/', // for `{{#staticPath}}resource-path{{/staticPath}}` in mustache template
             listen: `${listen}`
         }, {
             dev: {

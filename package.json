@@ -1,7 +1,7 @@
 {
   "name": "@yjc/server-k",
   "description": "Lightweight WEB Framework, folder based router, based on KOA.",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "bin": {
     "server-k": "./bin/startServer.js"
   },

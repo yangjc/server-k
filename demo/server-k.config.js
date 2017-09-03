@@ -15,21 +15,20 @@ module.exports = util.getServerConfig({
         config: 'config',
         // frontend: 'frontend'
     },
-    staticPath: '/',
     listen: 3080
 }, {
     dev: {
         static: {
             '/public/': 'static/public',
-            '/1/2/3/4/5/6/': 'static/source',
+            '/source/': 'static/source',
+            '/1/2/3/4/5/6/': 'static/public',
             '/': 'static/public',
             '/a/2/3/': 'static'
         },
         asset: {
-            js: '/source/js/dev',
-            css: '/source/css'
+            js: '/source/js/',
+            css: '/source/css/'
         },
-        staticPath: '/source/',
         logFile: {
             runtimeError: 'error.log'
         }
@@ -39,10 +38,15 @@ module.exports = util.getServerConfig({
             '/public/': 'static/public',
         },
         asset: {
-            js: 'frontend/assets.js.json',
-            css: 'frontend/assets.css.json'
+            js: {
+                path: '/public/js/',
+                alias: 'frontend/assets.js.json'
+            },
+            css: {
+                path: '/public/css/',
+                alias: 'frontend/assets.css.json'
+            }
         },
-        staticPath: '/public/',
         logFile: {
             runtimeError: 'error.log'
         }

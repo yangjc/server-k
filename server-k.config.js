@@ -27,7 +27,6 @@ module.exports = {
         // type: file
         runtimeError: ''
     },
-    staticPath: '/',
     indexFileName: 'index',
     indexActionName: 'main',
     indexStaticFileName: 'index.html',
