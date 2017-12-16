@@ -7,7 +7,9 @@
 const Server = require('./lib/Server');
 
 exports.Router = require('./lib/Router');
+exports.RouterReset = require('./lib/RouterReset');
 exports.Controller = require('./lib/Controller');
+exports.Config = require('./lib/Config');
 
 exports.util = require('./util');
 

@@ -4,6 +4,6 @@
 
 'use strict';
 
-const {Router} = require('@yjc/server-k');
+const { Router } = require('@yjc/server-k');
 
 module.exports = class extends Router {};

@@ -4,7 +4,7 @@
 
 'use strict';
 
-const {Router} = require('@yjc/server-k');
+const { Router } = require('@yjc/server-k');
 
 const Example = require('../controller/Example');
 const MultiMethod = require('../controller/MultiMethod');

@@ -6,7 +6,7 @@
 
 // will be ignored if duplicated to file router
 
-const {Router} = require('@yjc/server-k');
+const { Router } = require('@yjc/server-k');
 
 const Example = require('../../controller/Example');
 

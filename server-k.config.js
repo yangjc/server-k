@@ -21,7 +21,7 @@ module.exports = {
         // /path/: dir
     },
     asset: {
-        // type: file
+        // type: path or {path: , alias: }
     },
     logFile: {
         // type: file
@@ -30,5 +30,6 @@ module.exports = {
     indexFileName: 'index',
     indexActionName: 'main',
     indexStaticFileName: 'index.html',
+    subServer: null, // object
     listen: null // string | int
 };

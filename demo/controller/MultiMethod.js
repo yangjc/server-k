@@ -4,7 +4,7 @@
 
 'use strict';
 
-const {Controller} = require('@yjc/server-k');
+const { Controller } = require('@yjc/server-k');
 
 class MultiMethod extends Controller {
 

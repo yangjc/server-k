@@ -91,7 +91,7 @@ async function create(cwd, argv) {
         return console.error(`directory exists: ${rootDir}\ndo nothing`);
     }
 
-    const {Router, Controller} = require('@yjc/server-k');
+    const { Router, Controller } = require('@yjc/server-k');
 
     class Demo extends Controller {
 
@@ -117,8 +117,8 @@ async function create(cwd, argv) {
 
     }
 
-    const statementRouter = `const {Router} = require('@yjc/server-k');\n`;
-    const statementController = `const {Controller} = require('@yjc/server-k');\n`;
+    const statementRouter = `const { Router } = require('@yjc/server-k');\n`;
+    const statementController = `const { Controller } = require('@yjc/server-k');\n`;
     const statementCDemo = `const Demo = require('../controller/Demo');\n`;
 
     const printComment = function (comment) {

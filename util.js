@@ -4,10 +4,6 @@
 
 'use strict';
 
-const ENV_PRODUCTION = 'production';
-
-exports.ENV_PRODUCTION = ENV_PRODUCTION;
-
 function extend(source, ext) {
     if (!source || typeof source !== 'object') {
         source = {};
@@ -48,32 +44,4 @@ exports.getServerConfig = function (defaultConfig, envConfig) {
     return defaultConfig;
 };
 
-exports.getGetConfig = function (...configDirPaths) {
-    const configDir = require('path').resolve.apply(null, configDirPaths)
-        + (/\/$/.test(configDirPaths[configDirPaths.length - 1]) ? '/' : '');
-
-    configDirPaths = null;
-
-    let cache = {};
-
-    return (name) => {
-        if (cache.hasOwnProperty(name)) {
-            return cache[name];
-        }
-
-        let conf;
-        try {
-            conf = require(
-                `${configDir}${name}${process.env.NODE_ENV === ENV_PRODUCTION ? '' : `.${process.env.NODE_ENV}`}`
-            );
-        } catch (e) {
-            if (e.code !== 'MODULE_NOT_FOUND') {
-                throw e;
-            }
-
-            conf = require(`${configDir}${name}`);
-        }
-
-        return cache[name] = conf;
-    }
-};
+exports.ENV_PRODUCTION = 'production';
