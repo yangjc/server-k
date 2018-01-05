@@ -6,11 +6,6 @@
 
 const { Controller } = require('@yjc/server-k');
 
-/*
- * class extends Controller:
- *   all method functions should be middleware or middleware maker
- */
-
 class Example extends Controller {
 
     async main(ctx) {
@@ -45,12 +40,12 @@ class Example extends Controller {
             + `${JSON.stringify(ctx.state.actionArgs)}`;
     }
 
-    message(message) {
-        return async ctx => ctx.body = await this.render({mainContainer: message});
-    }
-
     getConfig(ctx) {
         ctx.body = this.data(0, this.server.getEnvConfig('test'));
+    }
+
+    hello(ctx) {
+        ctx.body = 'Hello World!';
     }
 
 }

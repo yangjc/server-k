@@ -10,6 +10,9 @@ export declare class Config {
 
     public get(name: string): any;
 
+    public getItem(name: string, itemName?: string): any;
+    public getItem(object: any, itemName?: string): any;
+
     readonly configDir: string;
 
     static readonly ENV_PRODUCTION: string;

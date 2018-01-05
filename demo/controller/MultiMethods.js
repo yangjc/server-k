@@ -6,12 +6,11 @@
 
 const { Controller } = require('@yjc/server-k');
 
-class MultiMethod extends Controller {
+class MultiMethods extends Controller {
 
     async formPage(ctx) {
         ctx.body = await this.render({
-            mainContainer: `<h1>Test Post</h1>
-                    <form method="post" action=""><input type="submit"></form>`
+            mainContainer: `<h1>Test Post</h1><form method="post" action=""><input type="submit"></form>`
         });
     }
 
@@ -26,4 +25,4 @@ class MultiMethod extends Controller {
 
 }
 
-module.exports = MultiMethod;
+module.exports = MultiMethods;

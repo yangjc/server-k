@@ -6,7 +6,16 @@
 
 const { Controller } = require('@yjc/server-k');
 
-class MultiMiddleware extends Controller {
+class ComposeActions extends Controller {
+
+    constructor(r) {
+        super(r);
+        this.closeActions(this.m0, this.m1, this.m2);
+    }
+
+    get action() {
+        return this.composeOnCall('action', this.m0, this.m1, this.m2);
+    }
 
     async m0(ctx, next) {
         ctx.body = `${ctx.method} multi-middleware example\n`;
@@ -25,4 +34,4 @@ class MultiMiddleware extends Controller {
 
 }
 
-module.exports = MultiMiddleware;
+module.exports = ComposeActions;

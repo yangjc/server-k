@@ -6,15 +6,12 @@
 
 const { Router } = require('@yjc/server-k');
 
-const Example = require('../../../controller/Example');
+const Message = require('../../../controller/Message');
 
 module.exports = class extends Router {
-    constructor(r) {
-        super(r);
-        this.example = new Example(r);
-    }
 
     main() {
-        return this.GET(this.example.message('Only the last "index" in url can be skipped.'));
+        return this.GET(Message, 'forIndexOnTail');
     }
+
 };

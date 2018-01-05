@@ -7,34 +7,13 @@
 const { Router } = require('@yjc/server-k');
 
 const Example = require('../controller/Example');
-const MultiMethod = require('../controller/MultiMethod');
-const MultiMiddleware = require('../controller/MultiMiddleware');
-
-/*
- * class extends Router:
- *   new Controller;
- *   define action;
- *   return middleware;
- *
- * nothing more
- */
+const MultiMethods = require('../controller/MultiMethods');
+const ComposeActions = require('../controller/ComposeActions');
 
 module.exports = class extends Router {
-    constructor(r) {
-        super(r);
-        this.example = new Example(r);
-        this.cMultiMethod = new MultiMethod(r);
-        this.cMultiMiddleware = new MultiMiddleware(r);
-    }
 
     main() {
-        // `this.example.main` will be replaced by `this.example.main.bind(this.example)` when initializing
-        return this.GET(true, this.example.main);
-    }
-
-    'favicon.ico'() {
-        // pass middleware directly if don't need to use controller context
-        return this.GET(ctx => ctx.status = 204);
+        return this.GET(true, Example, 'main');
     }
 
     error() {
@@ -43,41 +22,41 @@ module.exports = class extends Router {
 
     action() {
         console.log('this function executed just once.');
-        return this.GET(this.example.info);
+        return this.GET(Example, 'info');
     }
 
-    hasArgs() {
+    'has-args'() {
         // Has not argument, matches: /index/hasArgs
         // Has arguments, matches: /index/hasArgs/...
-        return this.GET(true, this.example.info);
+        return this.GET(true, Example, 'info');
     }
 
-    noArgs() {
-        return this.GET(false, this.example.info);
+    'no-args'() {
+        return this.GET(false, Example, 'info');
     }
 
-    multiMiddleware() {
-        return this.GET(
-            this.cMultiMiddleware.m0,
-            this.cMultiMiddleware.m1,
-            this.cMultiMiddleware.m2
-        );
+    compose() {
+        return this.GET(ComposeActions, 'action');
     }
 
-    multiMethod() {
+    'call-closed'() {
+        return this.GET(ComposeActions, 'm0');
+    }
+
+    'multi-method'() {
         return [
-            this.GET(this.cMultiMethod.formPage),
-            this.POST(this.cMultiMethod.post),
-            this.route('head', this.cMultiMethod.head)
+            this.GET(MultiMethods, 'formPage'),
+            this.POST(MultiMethods, 'post'),
+            this.route('head', MultiMethods, 'head')
         ];
     }
 
     throw() {
-        return this.GET(this.example.throw);
+        return this.GET(Example, 'throw');
     }
 
-    getConfig() {
-        return this.GET(this.example.getConfig);
+    'get-config'() {
+        return this.GET(Example, 'getConfig');
     }
 
 };

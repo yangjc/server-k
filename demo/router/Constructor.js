@@ -6,15 +6,13 @@
 
 const { Router } = require('@yjc/server-k');
 
-module.exports = class extends Router {
+const Example = require('../controller/Example');
 
-    constructor(r) {
-        super(r);
-    }
+module.exports = class extends Router {
 
     // change case to avoid name conflict
     CONSTRUCTOR() {
-        return this.GET(ctx => ctx.body = 'Hello World!');
+        return this.GET(Example, 'hello');
     }
 
 };

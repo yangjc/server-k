@@ -4,12 +4,12 @@
 
 import { Context as KoaContext } from 'koa';
 
-declare interface state {
+export declare interface State {
     actionName: string;
     actionArgsPath: string;
     actionArgs: string[];
 }
 
 export declare interface Context extends KoaContext {
-    state: state;
+    state: State;
 }

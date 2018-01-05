@@ -11,12 +11,9 @@ const { Router } = require('@yjc/server-k');
 const Example = require('../../controller/Example');
 
 module.exports = class extends Router {
-    constructor(r) {
-        super(r);
-        this.example = new Example(r);
-    }
 
     main() {
-        return this.GET(this.example.info);
+        return this.GET(Example, 'info');
     }
+
 };
